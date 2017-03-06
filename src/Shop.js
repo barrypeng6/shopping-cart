@@ -1,15 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router';
 import ProductContainer from './ProductContainer';
-import CartContainer from './CartContainer';
-import WishlistContainer from './WishlistContainer';
+import Home from './Home';
 
-const Shop = () => (
+const Shop = ({ children }) => (
   <div>
+    <nav>
+      <Link to="/cart">Cart</Link> |
+      <Link to="/wishlist"> Wishlist</Link>
+    </nav>
     <ProductContainer />
     <hr />
-    <CartContainer />
-    <hr />
-    <WishlistContainer />
+    {children || <Home/>}
   </div>
 );
 

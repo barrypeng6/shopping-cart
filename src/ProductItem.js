@@ -3,9 +3,12 @@ import InputField from './InputField';
 
 const ProductItem = ({ onSubmit, item, onAddToWishlist }) => (
   <div>
-    <span>{`${item.name} - $${item.price} `}</span>
+    <span>
+      {`${item.name} - $${item.price}`}
+      <InputField onSubmitNum={onSubmit} />
+    </span>
     <button onClick={onAddToWishlist}>加入追蹤清單</button>
-    <InputField onSubmitNum={onSubmit} />
+    <button onClick={onAddToWishlist}>詳細</button>
   </div>
 );
 
