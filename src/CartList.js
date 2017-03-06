@@ -1,7 +1,7 @@
 import React from 'react';
 import CartItem from './CartItem';
 
-class CartItemsList extends React.Component {
+class CartList extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -117,11 +117,11 @@ class CartItemsList extends React.Component {
   }
 }
 
-CartItemsList.propTypes = {
+CartList.propTypes = {
   cartItems: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
   onDelete: React.PropTypes.func.isRequired,
   onDeleteSelected: React.PropTypes.func.isRequired,
   addToWishlist: React.PropTypes.func.isRequired
 };
 
-export default CartItemsList;
+export default CartList;

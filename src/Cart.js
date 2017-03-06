@@ -1,45 +1,23 @@
 import React from 'react';
-import CartItemsList from './CartItemsList';
-import CartStore from './stores/CartStore';
+import CartList from './CartList';
 
-class Cart extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cartItems: CartStore.getAll()
-    };
-    this.getCartItems = this.getCartItems.bind(this);
-  }
-  componentWillMount() {
-    CartStore.on('change', this.getCartItems);
-  }
-  componentWillUnmount() {
-    CartStore.removeListener('change', this.getCartItems);
-  }
-  getCartItems() {
-    this.setState({
-      cartItems: CartStore.getAll()
-    });
-  }
-  render() {
-    const { handleDelete, handleDeleteSelected, handleAddToWishlist } = this.props;
-    return (
-      <div>
-        購物車
-        <CartItemsList
-          onDelete={handleDelete}
-          onDeleteSelected={handleDeleteSelected}
-          cartItems={this.state.cartItems}
-          addToWishlist={handleAddToWishlist}
-        />
-      </div>
-    );
-  }
-}
+const Cart = ({ cartItems, handleDelete, handleDeleteSelected, handleAddToWishlist }) => (
+  <div>
+    購物車
+    <CartList
+      cartItems={cartItems}
+      onDelete={handleDelete}
+      onDeleteSelected={handleDeleteSelected}
+      addToWishlist={handleAddToWishlist}
+    />
+  </div>
+);
 
 Cart.propTypes = {
+  cartItems: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
   handleDelete: React.PropTypes.func.isRequired,
-  handleDeleteSelected: React.PropTypes.func.isRequired
+  handleDeleteSelected: React.PropTypes.func.isRequired,
+  handleAddToWishlist: React.PropTypes.func.isRequired
 };
 
 export default Cart;

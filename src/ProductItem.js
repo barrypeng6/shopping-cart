@@ -1,7 +1,7 @@
 import React from 'react';
 import InputField from './InputField';
 
-const Item = ({ onSubmit, item, onAddToWishlist }) => (
+const ProductItem = ({ onSubmit, item, onAddToWishlist }) => (
   <div>
     <span>{`${item.name} - $${item.price} `}</span>
     <button onClick={onAddToWishlist}>加入追蹤清單</button>
@@ -9,7 +9,7 @@ const Item = ({ onSubmit, item, onAddToWishlist }) => (
   </div>
 );
 
-Item.propTypes = {
+ProductItem.propTypes = {
   onSubmit: React.PropTypes.func.isRequired,
   item: React.PropTypes.shape({
     id: React.PropTypes.number,
@@ -19,4 +19,4 @@ Item.propTypes = {
   onAddToWishlist: React.PropTypes.func.isRequired
 };
 
-export default Item;
+export default ProductItem;

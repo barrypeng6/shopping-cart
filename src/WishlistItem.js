@@ -12,4 +12,13 @@ class WishlistItem extends React.Component {
   }
 }
 
+WishlistItem.propTypes = {
+  wishlistItem: React.PropTypes.shape({
+    id: React.PropTypes.number,
+    name: React.PropTypes.string,
+    price: React.PropTypes.number
+  }).isRequired,
+  onDelete: React.PropTypes.func.isRequired
+};
+
 export default WishlistItem;
