@@ -4,13 +4,7 @@ import dispatcher from '../dispatcher';
 class WishlistStore extends EventEmitter {
   constructor() {
     super();
-    this.wishlistItems = [
-      {
-        id: 1,
-        name: 'apple',
-        price: 20
-      }
-    ];
+    this.wishlistItems = [];
   }
   addToWishlist(item) {
     if (this.wishlistItems.find(wishlistItem => wishlistItem.id === item.id)) {
@@ -27,6 +21,10 @@ class WishlistStore extends EventEmitter {
   }
   handleActions(action) {
     switch (action.type) {
+      case 'LOAD_WISHLIST_ITEMS':
+        this.wishlistItems = action.items;
+        this.emit('change');
+        break;
       case 'ADD_TO_WISHLIST':
         this.addToWishlist(action.item);
         this.emit('change');

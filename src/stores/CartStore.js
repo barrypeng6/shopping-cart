@@ -4,15 +4,7 @@ import dispatcher from '../dispatcher';
 class CartStore extends EventEmitter {
   constructor() {
     super();
-    this.items = [
-      {
-        id: 1241423423,
-        itemId: 4,
-        name: 'banana',
-        price: 25,
-        amount: 2
-      }
-    ];
+    this.items = [];
   }
   addToCart(amount, item) {
     const specificItem = this.items.find(oldCardItem => oldCardItem.itemId === item.id);
@@ -50,6 +42,10 @@ class CartStore extends EventEmitter {
   }
   handleActions(action) {
     switch (action.type) {
+      case 'LOAD_CARTITEMS':
+        this.items = action.items;
+        this.emit('change');
+        break;
       case 'ADD_TO_CART':
         this.addToCart(action.amount, action.item);
         this.emit('change');
