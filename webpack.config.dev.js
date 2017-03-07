@@ -17,7 +17,7 @@ module.exports = {
     new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }])
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loaders: ['babel-loader'],
