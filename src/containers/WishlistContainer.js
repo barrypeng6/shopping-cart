@@ -1,7 +1,7 @@
 import React from 'react';
-import Wishlist from './Wishlist';
-import WishlistStore from './stores/WishlistStore';
-import * as WishlistActions from './actions/WishlistActions';
+import Wishlist from '../components/Wishlist';
+import WishlistStore from '../stores/WishlistStore';
+import * as WishlistActions from '../actions/WishlistActions';
 
 class WishlistContainer extends React.Component {
   constructor() {

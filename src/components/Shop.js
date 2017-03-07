@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductContainer from './ProductContainer';
-import CartContainer from './CartContainer';
-import WishlistContainer from './WishlistContainer';
+import ProductContainer from '../containers/ProductContainer';
+import CartContainer from '../containers/CartContainer';
+import WishlistContainer from '../containers/WishlistContainer';
 
 const Shop = () => (
   <div>

@@ -21,7 +21,6 @@ class WishlistStore extends EventEmitter {
     this.emit('change');
   }
   deleteItem(id) {
-    console.log(id);
     this.wishlistItems = this.wishlistItems.filter(wishlistItem => wishlistItem.id !== id);
     this.emit('change');
   }

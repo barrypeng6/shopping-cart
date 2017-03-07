@@ -1,8 +1,8 @@
 import React from 'react';
-import Cart from './Cart';
-import * as CartActions from './actions/CartActions';
-import * as WishlistActions from './actions/WishlistActions';
-import CartStore from './stores/CartStore';
+import Cart from '../components/Cart';
+import * as CartActions from '../actions/CartActions';
+import * as WishlistActions from '../actions/WishlistActions';
+import CartStore from '../stores/CartStore';
 
 class CartContainer extends React.Component {
   constructor() {
