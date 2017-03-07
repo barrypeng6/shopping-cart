@@ -11,6 +11,18 @@ class ProductContainer extends React.Component {
     this.state = {
       items: ItemStore.getAll()
     };
+    this.getItems = this.getItems.bind(this);
+  }
+  componentWillMount() {
+    ItemStore.on('change', this.getItems);
+  }
+  componentWillUnmount() {
+    ItemStore.removeListener('change', this.getItems);
+  }
+  getItems() {
+    this.setState({
+      items: ItemStore.getAll()
+    });
   }
   render() {
     return (

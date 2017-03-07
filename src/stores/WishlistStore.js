@@ -18,11 +18,9 @@ class WishlistStore extends EventEmitter {
     } else {
       this.wishlistItems = this.wishlistItems.concat(item);
     }
-    this.emit('change');
   }
   deleteItem(id) {
     this.wishlistItems = this.wishlistItems.filter(wishlistItem => wishlistItem.id !== id);
-    this.emit('change');
   }
   getAll() {
     return this.wishlistItems;
@@ -31,9 +29,11 @@ class WishlistStore extends EventEmitter {
     switch (action.type) {
       case 'ADD_TO_WISHLIST':
         this.addToWishlist(action.item);
+        this.emit('change');
         break;
       case 'DELETE_WISHLIST_ITEM':
         this.deleteItem(action.id);
+        this.emit('change');
         break;
       default: break;
     }

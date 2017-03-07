@@ -36,17 +36,14 @@ class CartStore extends EventEmitter {
       };
       this.items = this.items.concat(newCartItem);
     }
-    this.emit('change');
   }
   deleteItem(id) {
     this.items = this.items.filter(oldCardItem => oldCardItem.id !== id);
-    this.emit('change');
   }
   deleteSelected(ids) {
     ids.forEach((id) => {
       this.items = this.items.filter(oldCardItem => oldCardItem.id !== id);
     });
-    this.emit('change');
   }
   getAll() {
     return this.items;
@@ -55,12 +52,15 @@ class CartStore extends EventEmitter {
     switch (action.type) {
       case 'ADD_TO_CART':
         this.addToCart(action.amount, action.item);
+        this.emit('change');
         break;
       case 'DELETE_CARTITEM':
         this.deleteItem(action.id);
+        this.emit('change');
         break;
       case 'DELETE_SELECTED_CARTITEM':
         this.deleteSelected(action.ids);
+        this.emit('change');
         break;
       default: break;
     }
